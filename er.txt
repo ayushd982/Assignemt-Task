@@ -1,0 +1,228 @@
+/*
+import React, { useState } from 'react';
+import Parse from 'parse/dist/parse.min.js';
+ const Login = (props) => {
+  // State variables
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [currentUser, setCurrentUser] = useState('');
+
+  const getCurrentUser = async function () {
+     currentUser = await Parse.User.current();
+    setCurrentUser(currentUser);
+    return currentUser;
+  };
+  const doUserLogIn = async function () {
+    // Note that these values come from state variables that we've declared before
+    const usernameValue = username;
+    const passwordValue = password;
+    try {
+      const loggedInUser = await Parse.User.logIn(usernameValue, passwordValue);
+      // logIn returns the corresponding ParseUser object
+      alert(
+        `Success! User ${loggedInUser.get(
+          'username'
+        )} has successfully signed in!`
+      );
+      // To verify that this is in fact the current user, `current` can be used
+      const currentUser = await Parse.User.current();
+      console.log(loggedInUser === currentUser);
+      // Clear input fields
+      setUsername('');
+      setPassword('');
+      // Update state variable holding current user
+      getCurrentUser();
+      return true;
+    } catch (error) {
+      // Error can be caused by wrong parameters or lack of Internet connection
+      alert(`Error! ${error.message}`);
+      return false;
+    }
+  };
+  return (
+    <div>
+      <div className="container">
+        <h2 className="heading">{'User Login'}</h2>
+        
+        <div className="form_wrapper">
+          <input
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Username"
+            size="large"
+            className="form_input"
+          />
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Password"
+            size="large"
+            type="password"
+            className="form_input"
+          />
+        </div>
+        <div className="form_buttons">
+          <button
+            onClick={() => doUserLogIn()}
+            type="primary"
+            className="form_button"
+            color={'#208AEC'}
+            size="large"
+            block
+          >
+            </button>
+            Log In
+        <button onClick={(event)=>props.onFormSwitch('SignUp')} className="form__hint">Don't have an account? Sign up</button>
+        </div>
+      </div>
+    </div>
+  );
+};
+
+export default Login;
+*/
+
+/*
+import React, { useState } from 'react';
+import Parse from 'parse/dist/parse.min.js';
+
+ const SignUp= (props) => {
+  // State variables
+  const [Email , setEmail] = useState('')
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const doUserRegistration = async function () {
+    // Note that these values come from state variables that we've declared before
+    const usernameValue = username;
+    const passwordValue = password;
+    try {
+      // Since the signUp method returns a Promise, we need to call it using await
+      const createdUser = await Parse.User.signUp(usernameValue, passwordValue);
+      alert(
+        `Success! User ${createdUser.getUsername()} was successfully created!`
+      );
+      return true;
+    } catch (error) {
+      // signUp can fail if any parameter is blank or failed an uniqueness check on the server
+      alert(`Error! ${error}`);
+      return false;
+    }
+  };
+
+  return (
+    <div>
+      <div className="header">
+      </div>
+      <div className="container">
+        <h2 className="heading">{'User Registration'}</h2>
+    
+        <div className="form_wrapper">
+        <input
+            value={Email}
+            onChange={(event) => setEmail(event.target.value)}
+            placeholder="yourmail@gmail.com"
+            size="large"
+            className="form_input"
+          />
+          <input
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+            placeholder="Username"
+            size="large"
+            className="form_input"
+          />
+          <input
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+            placeholder="Password"
+            size="large"
+            type="password"
+            className="form_input"
+          />
+        </div>
+        <div className="form_buttons">
+          <button
+            onClick={() => doUserRegistration()}
+            type="primary"
+            className="form_button"
+            color={'#208AEC'}
+            size="large"
+          >
+            Sign Up
+          </button>
+        </div>
+        {/* <button onClick={(event)=>props.onFormSwitch('Dummy')} className="form__hint">Already have an account? LogIn</button> */}
+        <a href="/login"></a>
+      </div>
+    </div>
+  );
+};
+
+export default SignUp 
+*/
+/*
+{/* <Home/>
+     {
+        currentState === "Login" ?  <Login onFormSwitch={toggleForm}/> :  <SignUp onFormSwitch={toggleForm}/>
+     } 
+     <List/> */}
+
+
+
+
+
+// react router dom npm install
+
+newLogin === true ?
+{/* <route path="/">
+<home/>
+</route> */} 
+: {/* <route path="/login">
+  <login/>
+</route> */}
+
+
+
+
+
+
+{/* <route path="/">
+  <home/>
+</route> */}
+
+
+
+
+// useEffect  funtion
+
+const[newLogin ,setNewLogin] = useState(Boolean)
+
+
+useEffect(() => {
+  checkLogi()
+}, [])
+
+
+
+
+const checkLogi = () =>{
+  const asdfg = localStorage.getItem("asdf")
+
+  if (asdfg == true) {
+    setNewLogin(true)
+  }else {
+    setNewLogin(false)
+  }
+}
+*/
+
+/*
+      // const PARSE_APPLICATION_ID = 'xwC4UfN4lbFUdYUKW2IpQM1WXGKRFLqJpaPUs7Gu';
+      // const PARSE_HOST_URL = 'http://localhost:3000/"';
+      // const PARSE_JAVASCRIPT_KEY = 'AiWAe3IqSHLLJiLxYWnEfaPUoxopJzkMNqnjQLpE';
+      // Parse.initialize(PARSE_APPLICATION_ID, PARSE_JAVASCRIPT_KEY);
+      // Parse.serverURL = PARSE_HOST_URL;
+      // Parse.setAsyncStorage(AsyncStorage);
+      // Parse.initialize('xwC4UfN4lbFUdYUKW2IpQM1WXGKRFLqJpaPUs7Gu' , 'AiWAe3IqSHLLJiLxYWnEfaPUoxopJzkMNqnjQLpE')
+      // Parse.serverURL = "http://localhost:3000/"
+*/
